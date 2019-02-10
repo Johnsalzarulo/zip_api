@@ -1,5 +1,11 @@
-#### Input
+### Overview
 
-5 digit zip code.
+This API endpoint provides a simple lookup of data from a given valid zip code.
 
-Examples: `90266`, `10000`, `00001`
+### Example Usage
+
+Endpoint:
+
+```
+#TODO
+```
