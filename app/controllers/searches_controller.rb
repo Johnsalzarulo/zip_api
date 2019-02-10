@@ -7,12 +7,15 @@ class SearchesController < ApplicationController
   end
 
   def create
-    data = ZipService.new(search_params[:zip]).perform
-    render json: {
-      data: data,
-      message: "Zip code found"
-    },
-    status: 200
+    @search = Search.new(search_params)
+    if @search.process
+      render json: {
+        data: @search.results
+      },
+      status: 200
+    else
+      render json: { errors: @search.errors.full_messages }, status: 400
+    end
   end
 
   private

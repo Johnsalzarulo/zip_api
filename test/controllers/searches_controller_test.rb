@@ -10,6 +10,11 @@ class SearchesControllerTest < ActionDispatch::IntegrationTest
     assert response_json.to_s.include? "Welcome"
   end
 
+  test "Search for 123 returns validation error" do
+    response_json = post_search("123")
+    assert response.status == 200
+  end
+
   test "Search for 93001 returns valid result" do
     response_json = post_search("93001")
     assert response.status == 200
