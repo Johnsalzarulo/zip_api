@@ -12,7 +12,7 @@ class Search
   end
 
   def results
-    @results
+     @results ||= ZipService.new(@zip).perform
   end
 
   private
