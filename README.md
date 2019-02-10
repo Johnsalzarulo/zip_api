@@ -78,4 +78,5 @@ This API uses 3 main components to handle the requests:
 - CLI integrated to ensure there's no breaking changes.
 - Tests cover all required cases from spec and additionally cover validation.
 
-Current Build Status: [![Build Status](https://semaphoreci.com/api/v1/projects/7b5219ee-1ef9-4f6b-9873-36e34cc65502/2504972/badge.svg)](https://semaphoreci.com/better/zip_api)
+Current Build Status: 
+[![Build Status](https://semaphoreci.com/api/v1/projects/7b5219ee-1ef9-4f6b-9873-36e34cc65502/2504972/badge.svg)](https://semaphoreci.com/better/zip_api)
