@@ -14,7 +14,10 @@ class SearchesController < ApplicationController
       },
       status: 200
     else
-      render json: { errors: @search.errors.full_messages }, status: 400
+      render json: {
+        errors: @search.errors.full_messages
+      },
+      status: 400
     end
   end
 
