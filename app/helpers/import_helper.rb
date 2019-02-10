@@ -1,13 +1,9 @@
 module ImportHelper
   require 'csv'
 
-  def get_csv
-    #TODO need to work on parsing.
-    file_path = "public/cbsa_to_msa.csv"
+  def get_csv(file_path)
     csv_text = File.open(file_path, "r:ISO-8859-1")
-    CSV.parse(csv_text, :headers => true)
-    csv.each do |row|
-      row.to_hash
-    end
+    csv = CSV.parse(csv_text, :headers => true)
+    # puts "#TODO - Make this call the requested file in a nice clean method - Calling import helper"
   end
 end

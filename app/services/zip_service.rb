@@ -6,7 +6,9 @@ class ZipService
   end
 
   def perform
-    get_csv
+    csv = get_csv("public/zip_to_cbsa.csv")
+    row = csv.select { |row| row['ï»¿ZIP'] == @zip }
+    row
   end
 
 #   csv.select { |row| row['GENDER'] == 'MALE' }
