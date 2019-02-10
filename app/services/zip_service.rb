@@ -8,20 +8,32 @@ class ZipService
   def perform
     csv = get_csv("public/zip_to_cbsa.csv")
     row = csv.select { |row| row['ï»¿ZIP'] == @zip }
-    row_to_json(row)
+    return row_not_found if row.blank?
+    hash = row.map(&:to_h)[0]
+    cbsa_values = CbsaService.new(hash["CBSA"]).perform
+    hash.store(:msa, cbsa_values[:MSANAME])
+    hash.store(:Pop2015, cbsa_values[:POPESTIMATE2015])
+    hash.store(:Pop2014, cbsa_values[:POPESTIMATE2014])
+    format_response(hash)
   end
-
-  def row_to_json(row)
-    {
-     "ZIP": row[0]["ï»¿ZIP"],
-     "MSA": row[0]["ï»¿MSA"],
-     "CBSA": row[0]["CBSA"]
-   }
-  end
-
-#   csv.select { |row| row['GENDER'] == 'MALE' }
-# csv.select { |row| row['GENDER'] == 'MALE' || row['SALARY'] >= 10000 }
 
   private
 
+  def row_not_found
+    {
+     "ZIP": "NOT FOUND",
+     "MSA": "NOT FOUND",
+     "CBSA": "NOT FOUND"
+   }
+  end
+
+  def format_response(hash)
+    {
+      "ZIP": hash["ï»¿ZIP"],
+      "CBSA": hash["CBSA"],
+      "MSA": hash[:msa],
+      "Pop2015": hash[:Pop2015],
+      "Pop2014": hash[:Pop2014]
+    }
+  end
 end
