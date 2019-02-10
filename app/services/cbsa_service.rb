@@ -20,9 +20,9 @@ class CbsaService
 
   def row_not_found
     {
-      MSANAME: "NOT FOUND",
-      POPESTIMATE2014: "NOT FOUND",
-      POPESTIMATE2015: "NOT FOUND",
+      MSANAME: "N/A",
+      POPESTIMATE2014: "N/A",
+      POPESTIMATE2015: "N/A",
     }
   end
 

@@ -11,9 +11,9 @@ class CbsaServiceTest < ActiveSupport::TestCase
     assert cbsa_service[:MSANAME] == "Los Angeles-Long Beach-Glendale, CA"
   end
 
-  test "Given 00000 search is returned not found" do
+  test "Given 00000 search is returned N/A" do
     cbsa_service = CbsaService.new("00000").perform
-    assert cbsa_service == "NOT FOUND"
+    assert cbsa_service[:MSANAME] == "N/A"
   end
 
 end

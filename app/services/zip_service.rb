@@ -21,9 +21,9 @@ class ZipService
 
   def row_not_found
     {
-     "ZIP": "NOT FOUND",
-     "MSA": "NOT FOUND",
-     "CBSA": "NOT FOUND"
+     "ZIP": "N/A",
+     "MSA": "N/A",
+     "CBSA": "N/A"
    }
   end
 
